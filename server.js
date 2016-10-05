@@ -3,16 +3,7 @@ var app=express();
 
 global.port=3000;
 
-var middleware={
-	requireAuthentication: function(req,res,next) {
-		console.log('route hit');
-		next();
-	},
-	logger: function(req,res,next) {
-		console.log(req.method + ' ' + req.originalUrl + ' ' + new Date().toString());
-		next();
-	}
-}
+var middleware= require('./middlewareobject.js');
 
 app.use(middleware.logger);
 
